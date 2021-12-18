@@ -1,0 +1,11 @@
+version: '3.1'
+
+services:
+  s_api_identity:
+    container_name: c_identity
+    image: mirze1993/reqrespconvert
+    build:
+      context: .
+      dockerfile: Modul/Dockerfile
+    ports:
+      - 6000:6000
