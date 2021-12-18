@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Modul.Bizness;
 using Modul.Model;
@@ -11,15 +12,21 @@ namespace Modul.Controllers
 {
     [ApiController]
     [Route("[controller]/[action]")]
-    public class WeatherForecastController : ControllerBase
+    public class ConvertReqRespController : ControllerBase
     {
+        private readonly IConfiguration config;
+
+        public ConvertReqRespController(IConfiguration config)
+        {
+            this.config = config;
+        }
         [HttpPost]
         public async Task<Response> Test([FromBody] Request jsonData)
         {
 
             var call = new CallMetod();
 
-            var result = await call.CallPost(jsonData.Body, "https://localhost:6001/ConvertReqResp/GetClinet");
+            var result = await call.CallPost(jsonData.Body, config.GetValue<string>("BaseUrl") + ":5050/ConvertReqResp/GetClinet");
 
 
             //switch (jsonData.MetodType)
