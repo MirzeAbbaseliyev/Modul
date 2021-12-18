@@ -1,5 +1,5 @@
 # Modull
-![alt text](https://github.com/MirzeAbbaseliyev/Modull/blob/master/Modull/aa.PNG)
+![alt text](https://github.com/MirzeAbbaseliyev/Modul/blob/master/Modull/aa.PNG)
 ```json
 {
   "url": "string",
